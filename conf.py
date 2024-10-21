@@ -30,8 +30,8 @@ html_theme = 'furo'
 html_static_path = ['_static']
 html_title = ""
 
-html_theme_options = {
-    # Disable showing the sidebar. Defaults to 'false'
-    'nosidebar': True,
-}
+# html_theme_options = {
+#     # Disable showing the sidebar. Defaults to 'false'
+#     'nosidebar': True,
+# }
 

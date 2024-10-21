@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="Installation.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>epoc documentation</title>
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -198,7 +198,15 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ConfigurationClient.html">ConfigurationClient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TEMClient.html">TEMClient</a></li>
+</ul>
+
 </div>
 </div>
 
@@ -231,7 +239,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -242,196 +250,20 @@
 <p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
 documentation for details.</p>
-<div class="toctree-wrapper compound">
-</div>
 <section id="api-reference">
 <h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">epoc.</span></span><span class="sig-name descname"><span class="pre">ConfigurationClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6379</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#epoc.ConfigurationClient" title="Link to this definition">¶</a></dt>
-<dd><p>Provides synchronization between PCs and persistent storage of values
-Currently based on Redis but could be extended to other backends</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.PI_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PI_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#epoc.ConfigurationClient.PI_name" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.XDS_template">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">XDS_template</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#epoc.ConfigurationClient.XDS_template" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.add_overlay">
-<span class="sig-name descname"><span class="pre">add_overlay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#epoc.ConfigurationClient.add_overlay" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.after_write">
-<span class="sig-name descname"><span class="pre">after_write</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#epoc.ConfigurationClient.after_write" title="Link to this definition">¶</a></dt>
-<dd><p>Call after finished an acquisition to update the configuration
-TODO! Find a better name</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.base_data_dir">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_data_dir</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#epoc.ConfigurationClient.base_data_dir" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.beam_center">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">beam_center</span></span><a class="headerlink" href="#epoc.ConfigurationClient.beam_center" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.cal_dir">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cal_dir</span></span><a class="headerlink" href="#epoc.ConfigurationClient.cal_dir" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.data_dir">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data_dir</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#epoc.ConfigurationClient.data_dir" title="Link to this definition">¶</a></dt>
-<dd><p>Directory where the current experiment will be stored.
-Computed from the configured experiment
-TODO! Do we need the support for a custom directory</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.experiment_class">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">experiment_class</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#epoc.ConfigurationClient.experiment_class" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.file_id">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">file_id</span></span><a class="headerlink" href="#epoc.ConfigurationClient.file_id" title="Link to this definition">¶</a></dt>
-<dd><p>Unique identifier for the current dataset</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.fname">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#epoc.ConfigurationClient.fname" title="Link to this definition">¶</a></dt>
-<dd><p>Filename for the current dataset
-generated from the configured experiment and the current date</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.fpath">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fpath</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#epoc.ConfigurationClient.fpath" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.frames_to_sum">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frames_to_sum</span></span><a class="headerlink" href="#epoc.ConfigurationClient.frames_to_sum" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.from_yaml">
-<span class="sig-name descname"><span class="pre">from_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flush_db</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#epoc.ConfigurationClient.from_yaml" title="Link to this definition">¶</a></dt>
-<dd><p>Return to a know state, or populate a new database
-args: path to the yaml file flush: if True, clear the database before loading</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.last_dataset">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">last_dataset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#epoc.ConfigurationClient.last_dataset" title="Link to this definition">¶</a></dt>
-<dd><p>Path to the last dataset that was recorded.
-Can be used to trigger processing</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.log_fpath">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log_fpath</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#epoc.ConfigurationClient.log_fpath" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.mag_value_diff">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mag_value_diff</span></span><a class="headerlink" href="#epoc.ConfigurationClient.mag_value_diff" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.mag_value_img">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mag_value_img</span></span><a class="headerlink" href="#epoc.ConfigurationClient.mag_value_img" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.measurement_tag">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">measurement_tag</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#epoc.ConfigurationClient.measurement_tag" title="Link to this definition">¶</a></dt>
-<dd><p>Tag to identify the current measurement. will be part of the filename</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.ncols">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ncols</span></span><a class="headerlink" href="#epoc.ConfigurationClient.ncols" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.nrows">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nrows</span></span><a class="headerlink" href="#epoc.ConfigurationClient.nrows" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.overlays">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">overlays</span></span><a class="headerlink" href="#epoc.ConfigurationClient.overlays" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.project_id">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">project_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#epoc.ConfigurationClient.project_id" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.receiver_endpoint">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">receiver_endpoint</span></span><a class="headerlink" href="#epoc.ConfigurationClient.receiver_endpoint" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.rotation_speed_idx">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rotation_speed_idx</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#epoc.ConfigurationClient.rotation_speed_idx" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.timestamp">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#epoc.ConfigurationClient.timestamp" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the current date in the format YYYY-MM-DD
-#TODO! should we set this manually instead for experiments crossing over midnight?</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.to_yaml">
-<span class="sig-name descname"><span class="pre">to_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#epoc.ConfigurationClient.to_yaml" title="Link to this definition">¶</a></dt>
-<dd><p>Save the current configuration to a yaml file</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.today">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">today</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#epoc.ConfigurationClient.today" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the current date in the format YYYY-MM-DD
-#TODO! should we set this manually instead for experiments crossing over midnight?</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.viewer_cmax">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">viewer_cmax</span></span><a class="headerlink" href="#epoc.ConfigurationClient.viewer_cmax" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.viewer_cmin">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">viewer_cmin</span></span><a class="headerlink" href="#epoc.ConfigurationClient.viewer_cmin" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.viewer_interval">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">viewer_interval</span></span><a class="headerlink" href="#epoc.ConfigurationClient.viewer_interval" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="epoc.ConfigurationClient.work_dir">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">work_dir</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#epoc.ConfigurationClient.work_dir" title="Link to this definition">¶</a></dt>
-<dd><p>Directory where output of data analysis will be stored</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="toctree-wrapper compound" id="general">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ConfigurationClient.html">ConfigurationClient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TEMClient.html">TEMClient</a></li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -440,7 +272,15 @@ Can be used to trigger processing</p>
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="Installation.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Installation</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
           
         </div>
         <div class="bottom-of-page">
@@ -460,64 +300,8 @@ Can be used to trigger processing</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">epoc documentation</a><ul>
-<li><a class="reference internal" href="#api-reference">API Reference</a><ul>
-<li><a class="reference internal" href="#epoc.ConfigurationClient"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient</span></code></a><ul>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.PI_name"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.PI_name</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.XDS_template"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.XDS_template</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.add_overlay"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.add_overlay()</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.after_write"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.after_write()</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.base_data_dir"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.base_data_dir</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.beam_center"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.beam_center</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.cal_dir"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.cal_dir</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.data_dir"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.data_dir</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.experiment_class"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.experiment_class</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.file_id"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.file_id</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.fname"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.fname</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.fpath"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.fpath</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.frames_to_sum"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.frames_to_sum</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.from_yaml"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.from_yaml()</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.last_dataset"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.last_dataset</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.log_fpath"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.log_fpath</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.mag_value_diff"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.mag_value_diff</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.mag_value_img"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.mag_value_img</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.measurement_tag"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.measurement_tag</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.ncols"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.ncols</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.nrows"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.nrows</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.overlays"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.overlays</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.project_id"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.project_id</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.receiver_endpoint"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.receiver_endpoint</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.rotation_speed_idx"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.rotation_speed_idx</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.timestamp"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.timestamp</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.to_yaml"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.to_yaml()</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.today"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.today</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.viewer_cmax"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.viewer_cmax</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.viewer_cmin"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.viewer_cmin</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.viewer_interval"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.viewer_interval</span></code></a></li>
-<li><a class="reference internal" href="#epoc.ConfigurationClient.work_dir"><code class="docutils literal notranslate"><span class="pre">ConfigurationClient.work_dir</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
