@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="Installation.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="ConfigurationClient" href="ConfigurationClient.html" /><link rel="prev" title="Installation" href="Installation.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>epoc documentation</title>
+        <title>Jungfraujoch</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">epoc</div></a>
+      <a href="index.html"><div class="brand">epoc</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -187,7 +187,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text">epoc</span>
@@ -198,9 +198,9 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul>
+  <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Jungfraujoch.html">Jungfraujoch</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Jungfraujoch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -226,7 +226,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/index.rst.txt" title="View this page">
+  <a class="muted-link" href="_sources/Jungfraujoch.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -240,29 +240,111 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="epoc-documentation">
-<h1>epoc documentation<a class="headerlink" href="#epoc-documentation" title="Link to this heading">¶</a></h1>
-<p>HTML documentation for the EPOC project.</p>
-<section id="api-reference">
-<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h2>
-<div class="toctree-wrapper compound" id="general">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Jungfraujoch.html">Jungfraujoch</a></li>
+          <section id="jungfraujoch">
+<h1>Jungfraujoch<a class="headerlink" href="#jungfraujoch" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Source code: <a class="reference external" href="https://gitlab.psi.ch/jungfraujoch/nextgendcu">https://gitlab.psi.ch/jungfraujoch/nextgendcu</a></p></li>
+<li><p>Python client: <a class="reference external" href="https://gitlab.psi.ch/jungfraujoch/nextgendcu/-/tree/main/python-client?ref_type=heads">https://gitlab.psi.ch/jungfraujoch/nextgendcu/-/tree/main/python-client?ref_type=heads</a></p></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ConfigurationClient.html">ConfigurationClient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TEMClient.html">TEMClient</a></li>
-</ul>
+<section id="file-content">
+<h2>File content<a class="headerlink" href="#file-content" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HDF5<span class="w"> </span><span class="s2">&quot;dark_long2_master.h5&quot;</span><span class="w"> </span><span class="o">{</span>
+FILE_CONTENTS<span class="w"> </span><span class="o">{</span>
+group<span class="w">      </span>/
+group<span class="w">      </span>/entry
+group<span class="w">      </span>/entry/data
+ext<span class="w"> </span>link<span class="w">   </span>/entry/data/data_000001<span class="w"> </span>-&gt;<span class="w"> </span>dark_long2_data_000001.h5<span class="w"> </span>/entry/data/data
+ext<span class="w"> </span>link<span class="w">   </span>/entry/data/data_000002<span class="w"> </span>-&gt;<span class="w"> </span>dark_long2_data_000002.h5<span class="w"> </span>/entry/data/data
+ext<span class="w"> </span>link<span class="w">   </span>/entry/data/data_000003<span class="w"> </span>-&gt;<span class="w"> </span>dark_long2_data_000003.h5<span class="w"> </span>/entry/data/data
+ext<span class="w"> </span>link<span class="w">   </span>/entry/data/data_000004<span class="w"> </span>-&gt;<span class="w"> </span>dark_long2_data_000004.h5<span class="w"> </span>/entry/data/data
+ext<span class="w"> </span>link<span class="w">   </span>/entry/data/data_000005<span class="w"> </span>-&gt;<span class="w"> </span>dark_long2_data_000005.h5<span class="w"> </span>/entry/data/data
+ext<span class="w"> </span>link<span class="w">   </span>/entry/data/data_000006<span class="w"> </span>-&gt;<span class="w"> </span>dark_long2_data_000006.h5<span class="w"> </span>/entry/data/data
+ext<span class="w"> </span>link<span class="w">   </span>/entry/data/data_000007<span class="w"> </span>-&gt;<span class="w"> </span>dark_long2_data_000007.h5<span class="w"> </span>/entry/data/data
+ext<span class="w"> </span>link<span class="w">   </span>/entry/data/data_000008<span class="w"> </span>-&gt;<span class="w"> </span>dark_long2_data_000008.h5<span class="w"> </span>/entry/data/data
+ext<span class="w"> </span>link<span class="w">   </span>/entry/data/data_000009<span class="w"> </span>-&gt;<span class="w"> </span>dark_long2_data_000009.h5<span class="w"> </span>/entry/data/data
+ext<span class="w"> </span>link<span class="w">   </span>/entry/data/data_000010<span class="w"> </span>-&gt;<span class="w"> </span>dark_long2_data_000010.h5<span class="w"> </span>/entry/data/data
+dataset<span class="w">    </span>/entry/definition
+dataset<span class="w">    </span>/entry/end_time
+dataset<span class="w">    </span>/entry/end_time_estimated
+group<span class="w">      </span>/entry/instrument
+group<span class="w">      </span>/entry/instrument/beam
+dataset<span class="w">    </span>/entry/instrument/beam/incident_wavelength
+group<span class="w">      </span>/entry/instrument/detector
+dataset<span class="w">    </span>/entry/instrument/detector/acquisition_type
+dataset<span class="w">    </span>/entry/instrument/detector/beam_center_x
+dataset<span class="w">    </span>/entry/instrument/detector/beam_center_y
+dataset<span class="w">    </span>/entry/instrument/detector/bit_depth_image
+dataset<span class="w">    </span>/entry/instrument/detector/bit_depth_readout
+group<span class="w">      </span>/entry/instrument/detector/calibration
+dataset<span class="w">    </span>/entry/instrument/detector/calibration/pedestal_g0
+dataset<span class="w">    </span>/entry/instrument/detector/calibration/pedestal_g1
+dataset<span class="w">    </span>/entry/instrument/detector/calibration/pedestal_g2
+dataset<span class="w">    </span>/entry/instrument/detector/calibration/pedestal_rms_g0
+dataset<span class="w">    </span>/entry/instrument/detector/calibration/pedestal_rms_g1
+dataset<span class="w">    </span>/entry/instrument/detector/calibration/pedestal_rms_g2
+dataset<span class="w">    </span>/entry/instrument/detector/count_time
+dataset<span class="w">    </span>/entry/instrument/detector/countrate_correction_applied
+dataset<span class="w">    </span>/entry/instrument/detector/description
+group<span class="w">      </span>/entry/instrument/detector/detectorSpecific
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/data_collection_efficiency
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/data_reduction_factor_serialmx
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/gain_file_names
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/jfjoch_release
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/max_receiver_delay
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/nimages
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/nimages_collected
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/nimages_written
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/ntrigger
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/pixel_mask
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/software_git_commit
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/software_git_date
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/storage_cell_number
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/x_pixels_in_detector
+dataset<span class="w">    </span>/entry/instrument/detector/detectorSpecific/y_pixels_in_detector
+dataset<span class="w">    </span>/entry/instrument/detector/detector_distance
+dataset<span class="w">    </span>/entry/instrument/detector/distance
+dataset<span class="w">    </span>/entry/instrument/detector/error_value
+dataset<span class="w">    </span>/entry/instrument/detector/flatfield_applied
+dataset<span class="w">    </span>/entry/instrument/detector/frame_time
+group<span class="w">      </span>/entry/instrument/detector/module
+dataset<span class="w">    </span>/entry/instrument/detector/module/data_origin
+dataset<span class="w">    </span>/entry/instrument/detector/module/data_size
+dataset<span class="w">    </span>/entry/instrument/detector/module/fast_pixel_direction
+dataset<span class="w">    </span>/entry/instrument/detector/module/module_offset
+dataset<span class="w">    </span>/entry/instrument/detector/module/slow_pixel_direction
+dataset<span class="w">    </span>/entry/instrument/detector/number_of_cycles
+dataset<span class="w">    </span>/entry/instrument/detector/pixel_mask<span class="w"> </span>-&gt;<span class="w"> </span>/entry/instrument/detector/detectorSpecific/pixel_mask
+dataset<span class="w">    </span>/entry/instrument/detector/pixel_mask_applied
+dataset<span class="w">    </span>/entry/instrument/detector/saturation_value
+dataset<span class="w">    </span>/entry/instrument/detector/sensor_material
+dataset<span class="w">    </span>/entry/instrument/detector/sensor_thickness
+group<span class="w">      </span>/entry/instrument/detector/transformations
+dataset<span class="w">    </span>/entry/instrument/detector/transformations/translation
+dataset<span class="w">    </span>/entry/instrument/detector/x_pixel_size
+dataset<span class="w">    </span>/entry/instrument/detector/y_pixel_size
+dataset<span class="w">    </span>/entry/instrument/name
+group<span class="w">      </span>/entry/result
+group<span class="w">      </span>/entry/result/adu_histogram
+dataset<span class="w">    </span>/entry/result/adu_histogram/bin_width
+dataset<span class="w">    </span>/entry/result/adu_histogram/module0
+group<span class="w">      </span>/entry/result/azimIntegration
+dataset<span class="w">    </span>/entry/result/azimIntegration/bin_to_q
+dataset<span class="w">    </span>/entry/result/azimIntegration/dataset
+group<span class="w">      </span>/entry/sample
+dataset<span class="w">    </span>/entry/sample/depends_on
+group<span class="w">      </span>/entry/source
+dataset<span class="w">    </span>/entry/source/name
+dataset<span class="w">    </span>/entry/source/type
+dataset<span class="w">    </span>/entry/start_time
+<span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
 </div>
 </section>
 </section>
@@ -272,16 +354,26 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="Installation.html">
+          <a class="next-page" href="ConfigurationClient.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Installation</div>
+                <div class="title">ConfigurationClient</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          
+          <a class="prev-page" href="Installation.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Installation</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -300,8 +392,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Jungfraujoch</a><ul>
+<li><a class="reference internal" href="#file-content">File content</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
