@@ -204,6 +204,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ConfigurationClient.html">ConfigurationClient</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TEMClient.html">TEMClient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JungfraujochWrapper.html">JungfraujochWrapper</a></li>
 </ul>
 
 </div>
@@ -241,7 +242,7 @@
           
 <section class="genindex-section">
   <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#X"><strong>X</strong></a></div>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#J"><strong>J</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#X"><strong>X</strong></a></div>
 </section>
 <section id="A" class="genindex-section">
   <h2>A</h2>
@@ -277,11 +278,17 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="ConfigurationClient.html#epoc.ConfigurationClient.cal_dir">cal_dir (epoc.ConfigurationClient property)</a>
 </li>
+        <li><a href="JungfraujochWrapper.html#epoc.JungfraujochWrapper.cancel">cancel() (epoc.JungfraujochWrapper method)</a>
+</li>
         <li><a href="TEMClient.html#simple_tem.TEMClient.check_version">check_version() (simple_tem.TEMClient method)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="TEMClient.html#simple_tem.TEMClient.client_version">client_version (simple_tem.TEMClient property)</a>
+</li>
+        <li><a href="JungfraujochWrapper.html#epoc.JungfraujochWrapper.collect">collect() (epoc.JungfraujochWrapper method)</a>
+</li>
+        <li><a href="JungfraujochWrapper.html#epoc.JungfraujochWrapper.collect_pedestal">collect_pedestal() (epoc.JungfraujochWrapper method)</a>
 </li>
         <li><a href="ConfigurationClient.html#epoc.ConfigurationClient">ConfigurationClient (class in epoc)</a>
 </li>
@@ -385,11 +392,25 @@
   <h2>I</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="TEMClient.html#simple_tem.TEMClient.is_alive">is_alive (simple_tem.TEMClient property)</a>
+        <li><a href="JungfraujochWrapper.html#epoc.JungfraujochWrapper.image_time_us">image_time_us (epoc.JungfraujochWrapper property)</a>
+</li>
+        <li><a href="JungfraujochWrapper.html#epoc.JungfraujochWrapper.init">init() (epoc.JungfraujochWrapper method)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="TEMClient.html#simple_tem.TEMClient.is_alive">is_alive (simple_tem.TEMClient property)</a>
+</li>
         <li><a href="TEMClient.html#simple_tem.TEMClient.is_rotating">is_rotating (simple_tem.TEMClient property)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="J" class="genindex-section">
+  <h2>J</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="JungfraujochWrapper.html#epoc.JungfraujochWrapper">JungfraujochWrapper (class in epoc)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -403,6 +424,8 @@
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="JungfraujochWrapper.html#epoc.JungfraujochWrapper.live">live() (epoc.JungfraujochWrapper method)</a>
+</li>
         <li><a href="ConfigurationClient.html#epoc.ConfigurationClient.log_fpath">log_fpath (epoc.ConfigurationClient property)</a>
 </li>
     </ul></td>
@@ -499,10 +522,10 @@
 </li>
         <li><a href="TEMClient.html#simple_tem.TEMClient.SetTiltXAngle">SetTiltXAngle() (simple_tem.TEMClient method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="TEMClient.html#simple_tem.TEMClient.SetTXRel">SetTXRel() (simple_tem.TEMClient method)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="TEMClient.html#simple_tem.TEMClient.SetXRel">SetXRel() (simple_tem.TEMClient method)</a>
 </li>
         <li><a href="TEMClient.html#simple_tem.TEMClient.SetYRel">SetYRel() (simple_tem.TEMClient method)</a>
@@ -514,6 +537,10 @@
         <li><a href="TEMClient.html#simple_tem.TEMClient.stage_is_rotating">stage_is_rotating (simple_tem.TEMClient property)</a>
 </li>
         <li><a href="TEMClient.html#simple_tem.TEMClient.stage_position">stage_position (simple_tem.TEMClient property)</a>
+</li>
+        <li><a href="JungfraujochWrapper.html#epoc.JungfraujochWrapper.start">start() (epoc.JungfraujochWrapper method)</a>
+</li>
+        <li><a href="JungfraujochWrapper.html#epoc.JungfraujochWrapper.status">status() (epoc.JungfraujochWrapper method)</a>
 </li>
         <li><a href="TEMClient.html#simple_tem.TEMClient.StopStage">StopStage() (simple_tem.TEMClient method)</a>
 </li>
@@ -569,10 +596,12 @@
   <h2>W</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="TEMClient.html#simple_tem.TEMClient.wait_until_rotate_starts">wait_until_rotate_starts() (simple_tem.TEMClient method)</a>
+        <li><a href="JungfraujochWrapper.html#epoc.JungfraujochWrapper.wait_until_idle">wait_until_idle() (epoc.JungfraujochWrapper method)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="TEMClient.html#simple_tem.TEMClient.wait_until_rotate_starts">wait_until_rotate_starts() (simple_tem.TEMClient method)</a>
+</li>
         <li><a href="ConfigurationClient.html#epoc.ConfigurationClient.work_dir">work_dir (epoc.ConfigurationClient property)</a>
 </li>
     </ul></td>

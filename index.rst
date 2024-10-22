@@ -27,4 +27,5 @@ API Reference
 
    ConfigurationClient
    TEMClient
+   JungfraujochWrapper
 
