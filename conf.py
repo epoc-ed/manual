@@ -6,6 +6,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+from importlib import metadata
+
 project = 'epoc'
 copyright = '2024, Erik'
 author = 'Erik'
@@ -20,7 +22,8 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-
+simple_tem_version = metadata.version('simple_tem')
+epoc_utils_version = metadata.version('epoc')
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
