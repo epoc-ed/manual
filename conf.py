@@ -15,7 +15,6 @@ author = 'Erik'
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx_markdown_builder',
 ]
 
 templates_path = ['_templates']

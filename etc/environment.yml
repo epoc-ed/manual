@@ -1,0 +1,11 @@
+name: docs
+channels:
+  - conda-forge
+  - epoc
+dependencies:
+  - python=3.12 
+  - doxygen
+  - sphinx=7.1.2
+  - breathe
+  - furo
+  
