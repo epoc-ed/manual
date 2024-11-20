@@ -23,7 +23,12 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 simple_tem_version = metadata.version('simple_tem')
-epoc_utils_version = metadata.version('epoc')
+epoc_version = metadata.version('epoc')
+
+rst_prolog = f"""
+.. |simple_tem_version| replace:: {simple_tem_version}
+.. |epoc_version| replace:: {epoc_version}
+"""
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

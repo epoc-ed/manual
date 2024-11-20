@@ -8,12 +8,14 @@
 epoc documentation
 ==================
 
-Built using: 
-- epoc version: |epoc__utils_version|
-- simple_tem: |simple_tem_version|
+.. note:: 
+
+   Documentation built using: 
+
+   - epoc version: |epoc_version|
+   - simple_tem: |simple_tem_version|
  
 
-HTML documentation for the EPOC project.
 
 API Reference
 -------------------
