@@ -37,7 +37,9 @@ jobs:
           channels: conda-forge
 
       - name: Prepare
-        run: conda env create -f etc/environment.yml
+        run: | 
+          conda env create -f etc/environment.yml
+          conda activate docs
 
       - name: Build library 
         run: |
