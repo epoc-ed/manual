@@ -39,10 +39,6 @@ jobs:
           channels: conda-forge
           auto-activate-base: false
 
-      # - name: Prepare
-      #   run: | 
-      #     conda env create -f etc/environment.yml
-
       - name: Build library 
         run: |
             make html 

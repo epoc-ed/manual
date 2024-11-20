@@ -1,11 +1,13 @@
 name: docs
 channels:
   - conda-forge
-  - epoc
+  - epoc-project
 dependencies:
   - python
   - doxygen
   - sphinx=7.1.2
   - breathe
   - furo
+  - epoc
+  - simple-tem
   
