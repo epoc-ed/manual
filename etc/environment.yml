@@ -9,5 +9,5 @@ dependencies:
   - breathe
   - furo
   - epoc
-  - simple-tem
+  - simple_tem
   
