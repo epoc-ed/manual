@@ -33,13 +33,15 @@ jobs:
       - name: Get conda
         uses: conda-incubator/setup-miniconda@v3.0.4
         with:
+          activate-environment: docs
           python-version: ${{ matrix.python-version }}
+          environment-file: etc/environment.yml
           channels: conda-forge
+          auto-activate-base: false
 
-      - name: Prepare
-        run: | 
-          conda env create -f etc/environment.yml
-          conda activate docs
+      # - name: Prepare
+      #   run: | 
+      #     conda env create -f etc/environment.yml
 
       - name: Build library 
         run: |

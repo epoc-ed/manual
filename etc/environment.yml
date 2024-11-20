@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - epoc
 dependencies:
-  - python=3.12 
+  - python
   - doxygen
   - sphinx=7.1.2
   - breathe
