@@ -39,7 +39,7 @@ jobs:
           channels: conda-forge
           auto-activate-base: false
 
-      - name: Build library 
+      - name: Build documentation 
         run: |
             make html 
 

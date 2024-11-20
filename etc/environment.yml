@@ -10,4 +10,6 @@ dependencies:
   - furo
   - epoc
   - simple_tem
+  - pip:
+    - jfjoch_client #currently not available on conda-forge
   
