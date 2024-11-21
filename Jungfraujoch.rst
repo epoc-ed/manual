@@ -1,22 +1,42 @@
 Jungfraujoch
 --------------
 
+Jungfraujoch is a FPGA based data backed developed by Filip Leonarski. It started as a project focused on MX at synchrotrons
+but has evolved to general data backed.
+
 - Source code: https://gitlab.psi.ch/jungfraujoch/nextgendcu
-- Python client: https://gitlab.psi.ch/jungfraujoch/nextgendcu/-/tree/main/python-client?ref_type=heads
-
-.. Install location
-.. ~~~~~~~~~~~~~~~~~~
-
-.. /opt/jfjoch
+- Documentation: https://gitlab.psi.ch/jungfraujoch/nextgendcu/-/tree/main/docs?ref_type=heads
 
 
-.. Using the Python client
-.. =========================
+Installation
+""""""""""""""
+
+The Jungfraujoch FPGA card is mounted in noehter and the detector is directly connected using optical fibers.
+
+.. TODO! expand on physical setup
+
+.. code-block:: bash
+
+    #installation location
+    /opt/jfjoch
+
+    #Detector configuration
+    /opt/etc/broker_jf500k.json
+
+    #Web frontend (To be moved)
+    /home/psi/jfjoch_frontend
+
+    #Detector calibration
+    /opt/cal
 
 
-.. Check status
+Using the Python client
+=========================
 
-.. .. code-block:: bash
+
+Check status
+
+.. code-block:: bash
 
 
 File content
