@@ -8,6 +8,10 @@
 epoc documentation
 ==================
 
+.. attention::
+
+   This document is for the EPOC project at UniVie. Some parts are specific to the actual setup and not relevant in other contexts.
+
 .. note:: 
 
    Documentation built using: 
@@ -17,12 +21,20 @@ epoc documentation
  
 
 
-API Reference
+TOC
 -------------------
 
 .. toctree::
    :maxdepth: 1
-   :name: General:
+   :caption: Usage:
+
+   Start-up
+   Shutdown
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: General:
 
    Installation
    Jungfraujoch
