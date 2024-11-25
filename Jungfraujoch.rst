@@ -15,6 +15,8 @@ The Jungfraujoch FPGA card is mounted in noehter and the detector is directly co
 
 .. TODO! expand on physical setup
 
+The code is compiled locally on noehter and the binaries are stored in `/opt/jfjoch`.
+
 .. code-block:: bash
 
     #installation location
@@ -30,13 +32,8 @@ The Jungfraujoch FPGA card is mounted in noehter and the detector is directly co
     /opt/cal
 
 
-Using the Python client
-=========================
 
 
-Check status
-
-.. code-block:: bash
 
 
 File content
