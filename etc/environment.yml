@@ -4,6 +4,7 @@ channels:
   - epoc-project
 dependencies:
   - python
+  - pip
   - doxygen
   - sphinx=7.1.2
   - breathe

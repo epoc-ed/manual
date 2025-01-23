@@ -22,9 +22,14 @@ extensions = [
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
-simple_tem_version = metadata.version('simple_tem')
-epoc_version = metadata.version('epoc')
+try:
+    simple_tem_version = metadata.version('simple_tem')
+except metadata.PackageNotFoundError:
+    simple_tem_version = '0.0.0'
+try:
+    epoc_version = metadata.version('epoc')
+except metadata.PackageNotFoundError:
+    epoc_version = '0.0.0'
 
 rst_prolog = f"""
 .. |simple_tem_version| replace:: {simple_tem_version}
