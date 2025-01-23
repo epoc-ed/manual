@@ -48,3 +48,9 @@ TOC
    TEMClient
    JungfraujochWrapper
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Meta:
+
+   UpdateDocumentation
+
