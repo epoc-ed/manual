@@ -72,13 +72,13 @@ CameraPC (hodgkin)
 
 5. Initialize the detector and backend by pressing the init button in the web interface.
 
-6. Launch the GUI (stable)
+6. Launch the GUI in (stable) env
 
 .. code-block:: bash
 
-    jungfrau_gui
+    jungfrau_gui [-t] [-s tcp://noether:5501] [-f]
 
-7. Launch the GUI (testing)
+7. Launch the GUI in (dev) env
 
 .. code-block:: bash
 
