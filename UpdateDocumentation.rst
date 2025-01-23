@@ -32,7 +32,7 @@ Workflow
 
 .. code-block:: bash
 
-    git push origin some_feature
+    git push --set-upstream origin some_feature
 
 
 **5. Inspect your changes**
