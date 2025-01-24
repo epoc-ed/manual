@@ -16,29 +16,42 @@ Enables control of the microscope from other computers.
 
 This should be done before starting the GUI.
 
-#. Open a Miniconda PowerShell Prompt (Anaconda submenu) from the Windows Start Menu.
-    
+#. Navigate to: **C:\\ProgramData\\EPOC**
+
+#. Double-click on the .bat file
+
 .. warning::
     
-    The Quick Edit mode of the PowerShell prompt can interupt the script, disable it by:
+    In case of any issues with the .bat file, please follow the steps below for the manual start-up:
 
-    - Right-click on the title bar 
-    - Select `Properties` from the dropdown menu.
-    - In the `Options` tab, uncheck the box for `Quick Edit Mode`
-    - Click `OK`.
+    1. Open a Miniconda PowerShell Prompt (Anaconda submenu) from the Windows Start Menu.
 
-#.  Navigate to: **C:\\ProgramData\\EPOC**
-#. Activate the environment:
+    .. note::
 
-.. code-block:: bash
+        The Quick Edit mode of the PowerShell prompt can interupt the script, disable it by:
 
-    conda activate vjem38
+        - Right-click on the title bar 
+        - Select `Properties` from the dropdown menu.
+        - In the `Options` tab, uncheck the box for `Quick Edit Mode`
+        - Click `OK`.
 
-#. Start the TEM server:
+    2. Navigate to: **C:\\ProgramData\\EPOC**
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    python server_tem.py
+        cd C:\\ProgramData\\EPOC
+
+    3. Activate the environment by
+
+    .. code-block:: bash
+
+        conda activate vjem38
+
+    4. Start the TEM server:
+
+    .. code-block:: bash
+
+        python server_tem.py
 
 CameraPC (hodgkin)
 """""""""""""""""""""""
@@ -72,17 +85,21 @@ CameraPC (hodgkin)
 
 5. Initialize the detector and backend by pressing the init button in the web interface.
 
-6. Launch the GUI in (stable) env
+6. Launch the GUI (stable)
 
 .. code-block:: bash
 
+    mamba activate stable
     jungfrau_gui [-t] [-s tcp://noether:5501] [-f]
 
-7. Launch the GUI in (dev) env
+7. Launch the GUI (dev)
 
 .. code-block:: bash
 
-    cd GUI/
-    python launch_gui.py
+    mamba activate dev
+    cd ~/GUI/
+    git branch --contains
+    git switch no-reuss-client # Soon to be renamed "testing"
+    python launch_gui.py [-t] [-s tcp://noether:5501] [-f]
 
 
