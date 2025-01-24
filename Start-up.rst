@@ -56,11 +56,13 @@ CameraPC (hodgkin)
     For now leave the terminals open. 
 
 1. Check that broker and writer are running on noether:
+
 .. code-block:: bash
-    #> ssh noether
-    #> ps -elf | grep writer
+    
+    $ ssh noether
+    $ ps -elf | grep writer
     jem2100+    2024       1  1 Jan22 ?        00:47:58 /opt/jfjoch/bin/jfjoch_writer -R /data/epoc/storage/jem2100plus tcp://localhost:5500
-    #> ps -elf | grep broker 
+    $ ps -elf | grep broker 
     4 S root        3569       1  7  80   0 - 3155992 -    Jan22 ?        03:02:46 /opt/jfjoch/bin/jfjoch_broker /opt/config/broker_jf1M.json
 
 2. Start the Jungfraujoch broker on noether:
