@@ -16,9 +16,9 @@ Enables control of the microscope from other computers.
 
 This should be done before starting the GUI.
 
-#. Navigate to: **C:\\ProgramData\\EPOC**
+#. Navigate to: **C:\\Users\\JEM User\\Documents\\DataExchange\\bat**
 
-#. Double-click on the .bat file
+#. Double-click on the **run_tem_server.bat** file
 
 .. warning::
     
