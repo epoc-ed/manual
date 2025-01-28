@@ -59,7 +59,7 @@ CameraPC (hodgkin)
 
 .. warning::
     
-    As of 2024-01-24, the steps 1-3 are no longer necessary as they are started
+    As of 2024-01-24, the manual start-up of Jungfraujoch's broker and writer is no longer necessary as they are started
     automatically at boot time of noether.
 
     Keep an eye on this section since the procedure will change as we improve the Jungfraujoch integration.
@@ -77,41 +77,32 @@ CameraPC (hodgkin)
     $ ps -elf | grep broker 
     4 S root        3569       1  7  80   0 - 3155992 -    Jan22 ?        03:02:46 /opt/jfjoch/bin/jfjoch_broker /opt/config/broker_jf1M.json
 
-2. Start the Jungfraujoch broker on noether:
+2. Start the metadata updater script on noether:
 
 .. code-block:: bash
 
-    #The broker needs to run with root privileges to access the FPGA card.
     ssh noether
-    su - 
-    ...
+    python -i /data/epoc/storage/jem2100plus/metadata_update_server.py
 
+3. Open a web browser and navigate to the Jungfraujoch GUI at `http://noether:5232/`.
 
-3. Start the Jungfraujoch writer on noether:
- 
-.. code-block:: bash
+4. Initialize the detector and backend by pressing the init button in the web interface.
 
-    #run as jem2100user?
-
-4. Open a web browser and navigate to the Jungfraujoch GUI at `http://noether:5232/`.
-
-5. Initialize the detector and backend by pressing the init button in the web interface.
-
-6. Launch the GUI (stable)
+5. Launch the GUI (stable)
 
 .. code-block:: bash
 
     mamba activate stable
     jungfrau_gui [-t] [-s tcp://noether:5501] [-f]
 
-7. Launch the GUI (dev)
+6. Launch the GUI (dev)
 
 .. code-block:: bash
 
     mamba activate dev
     cd ~/GUI/
     git branch --contains
-    git switch no-reuss-client # Soon to be renamed "testing"
+    git switch testing
     python launch_gui.py [-t] [-s tcp://noether:5501] [-f]
 
 
