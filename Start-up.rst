@@ -88,19 +88,19 @@ CameraPC (hodgkin)
 
 4. Initialize the detector and backend by pressing the init button in the web interface.
 
-5. Launch the GUI (stable)
+5. Launch the GUI (stable) on hodgkin 
 
 .. code-block:: bash
 
     mamba activate stable
     jungfrau_gui [-t] [-s tcp://noether:5501] [-f]
 
-6. Launch the GUI (dev)
+6. Launch the GUI (dev) on hodgkin
 
 .. code-block:: bash
 
     mamba activate dev
-    cd ~/GUI/
+    cd ~/developer/GUI/
     git branch --contains
     git switch testing
     python launch_gui.py [-t] [-s tcp://noether:5501] [-f]
