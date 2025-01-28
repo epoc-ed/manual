@@ -81,7 +81,7 @@ CameraPC (hodgkin)
 
 .. code-block:: bash
 
-    ssh noether
+    ssh noether # only if opened a new terminal on hodgkin
     python -i /data/epoc/storage/jem2100plus/metadata_update_server.py
 
 3. Open a web browser and navigate to the Jungfraujoch GUI at `http://noether:5232/`.
