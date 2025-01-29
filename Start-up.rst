@@ -59,7 +59,7 @@ CameraPC (hodgkin)
 
 .. warning::
     
-    As of 2024-01-24, the manual start-up of Jungfraujoch's broker and writer is no longer necessary as they are started
+    As of 2025-01-24, the manual start-up of Jungfraujoch's broker and writer is no longer necessary as they are started
     automatically at boot time of noether.
 
     Keep an eye on this section since the procedure will change as we improve the Jungfraujoch integration.
