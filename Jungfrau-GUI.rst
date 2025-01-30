@@ -237,12 +237,10 @@ B. TIFF Writer
 
 ``Tiff File Name``
     Area to define the name of the TIFF file and its index. It contains:
+
     - First line-edit is read-only and displays the folder where TIFF files are saved.
     - Second line-edit is modifiable (ASCII characters and underscores only) and is meant for the file name.
     - Spinbox is modifiable, is incremented after each writing and represents the index of the written TIFF.
-
-``index``
-    Set the file index for the TIFF file.
 
 ``Accumulate in TIFF``
     Accumulates a specified number of frames in the TIFF file.
