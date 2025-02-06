@@ -102,7 +102,7 @@ CameraPC (hodgkin)
     mamba activate dev
     cd ~/developer/GUI/
     git branch --contains
-    git switch testing
+    git switch main
     python launch_gui.py [-t] [-s tcp://noether:5501] [-f]
 
 
