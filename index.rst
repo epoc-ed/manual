@@ -30,6 +30,7 @@ TOC
 
    Start-up
    Shutdown
+   Troubleshooting
 
 
 .. toctree::
