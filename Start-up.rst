@@ -17,6 +17,14 @@ Enables control of the microscope from other computers.
 
 This should be done before starting the GUI.
 
+#. Check if ``server_tem.py`` is running in the Miniconda PowerShell Prompt on TEMPC. 
+
+    .. note::
+        
+        If the script is running, you can jump to the section **CameraPC (hodgkin)**.
+
+        Otherwise, please follow the instructions in steps (2) and (3) below.
+
 #. Navigate to: **C:\\Users\\JEM User\\Documents\\DataExchange\\bat**
 
 #. Double-click on the **run_tem_server.bat** file
@@ -77,32 +85,47 @@ CameraPC (hodgkin)
     $ ps -elf | grep broker 
     4 S root        3569       1  7  80   0 - 3155992 -    Jan22 ?        03:02:46 /opt/jfjoch/bin/jfjoch_broker /opt/config/broker_jf1M.json
 
-2. Start the metadata updater script on noether:
+2. Check that the metadata updater script is also running on noether.
+
+.. code-block:: bash
+        
+    $ ssh noether # only if opened a new terminal on hodgkin
+    $ ps -elf | grep metadata_update_server
+    jem2100+    4975       1  1 Feb18 ?        10:09:18 /data/epoc/storage/jem2100plus/metadata_update_server.py
+
+⚠️ If the metadata updater script is not active, run the following commands:
 
 .. code-block:: bash
 
-    ssh noether # only if opened a new terminal on hodgkin
-    python -i /data/epoc/storage/jem2100plus/metadata_update_server.py
+    $ python -i /data/epoc/storage/jem2100plus/metadata_update_server.py
 
 3. Open a web browser and navigate to the Jungfraujoch GUI at `http://noether:5232/`.
 
-4. Initialize the detector and backend by pressing the init button in the web interface.
+4. Initialize the detector and backend by pressing the **INITIALIZE** button in the web interface.
 
-5. Launch the GUI (stable) on hodgkin 
+5. Launch the GUI using one of the following options:
 
-.. code-block:: bash
+   **5.a. For users (stable environment on hodgkin)**
 
-    mamba activate stable
-    jungfrau_gui [-t] [-s tcp://noether:5501] [-f]
+   Run the following commands:
 
-6. Launch the GUI (dev) on hodgkin
+   .. code-block:: bash
 
-.. code-block:: bash
+       cd ~
+       mamba activate stable
+       jungfrau_gui [-t] [-s tcp://noether:5501]
 
-    mamba activate dev
-    cd ~/developer/GUI/
-    git branch --contains
-    git switch main
-    python launch_gui.py [-t] [-s tcp://noether:5501] [-f]
+   **5.b. For developers (dev environment on hodgkin)**
+
+   Run the following commands:
+
+   .. code-block:: bash
+
+       mamba activate dev
+       cd ~/developer/GUI/
+       git branch --contains
+       git switch main
+       python launch_gui.py [-t] [-s tcp://noether:5501] [-f]
+
 
 
