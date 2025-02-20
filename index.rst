@@ -29,6 +29,7 @@ TOC
    :caption: Usage:
 
    Start-up
+   Jungfrau-GUI
    Shutdown
    Troubleshooting
 
