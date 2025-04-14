@@ -42,8 +42,8 @@ With your environment active, install all packages from your ``requirements.txt`
     pip install -r requirements.txt
 
 
-**B. Install the JF_GUI as a conda package**
-""""""""""""""""""""""""""""""""""""""""""""
+**B. Install the software as a conda package**
+""""""""""""""""""""""""""""""""""""""""""""""
 
 At this point, you need to have completed steps in the previous section.
 
