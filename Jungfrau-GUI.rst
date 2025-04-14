@@ -266,7 +266,7 @@ In this section, the user can define the colormap to map scalar data values to c
 ``H5 Output Path``
     Read-only field showing the path where datasets are saved.
 
-**C. HDF5 Output**
+**C. Snapshot Writer**
 
 .. image:: images/jf_gui_file_operations_3.png
    :alt: Screenshot of the Snapshot Writer section
