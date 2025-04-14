@@ -28,7 +28,7 @@ For example::
     ├─ setup.py
     ├─ MANIFEST.in
     └─ conda-recepie/
-    └─ meta.yaml
+        └─ meta.yaml
 
 **3. Build the Package with ``conda-build``**
 
@@ -39,7 +39,7 @@ From the project's root directory:
     conda install conda-build  # if not already installed
     conda build conda-recepie
 
-This will produce a ``.tar.bz2`` (or ``.conda``) file in your ``conda-bld/<platform>`` directory (often ``conda-bld/noarch`` for noarch packages).
+This will produce a ``.conda`` (or ``.tar.bz2``) file in your ``conda-bld/<platform>`` directory (often ``conda-bld/noarch`` for noarch packages).
 
 **4. Installing the Newly Built Package**
 
@@ -50,7 +50,7 @@ Normally, you can install the package from the local build by:
     conda install --use-local jungfrau_gui
 
 Sometimes, you may encounter a situation where the newly built package is not found even though you know it’s in ``conda-bld/``.
-In that case, you can install the package directly from the ``.conda`` or ``.tar.bz2`` file:
+In that case, you can install the package directly from the ``.conda`` (or ``.tar.bz2``) file:
 
 .. code-block:: bash
 
