@@ -12,11 +12,35 @@ Below is a screenshot of the Image area (left) and the functionalities tabs (rig
    :alt: Screenshot of the image area (left) and the Visualization Panel tab (right)
    :align: center
 
+
+**Main Area**
+"""""""""""""""""""""""
+.. image:: images/main_area.png
+   :alt: Screenshot of the Color map section
+   :width: 380px
+   :align: center
+
+**A. Dock Area**
+
+- The main widget of the UI is a dock area of the ``pyqtgraph`` module.
+- It displays an area of 1064 pixel rows and 1030 pixel columns for the 1 megapixel (1M) version of the JUNGFRAU.
+- Frames being received by the ZeroMQ socket are decoded using ``cbor2``, reshaped into a 1030x1064 array of ``int32`` and then displayed on the dock area.
+
+**B. Contrast Controls**
+
+``Apply Auto Contrast``
+    Dynamically computes the lower (1st percentile) and upper (99th percentile) values of the image and accordingly updates the bounds of the histogram. Also throws out any non-physical outlier values such as overflows or NaNs.
+
+``Reset Contrast``
+    Turns off the auto-contrast and reloads preset contrast values from the Redis database.
+
+``[-50 - 50]``, ``[0 - 100]``, ``[0 - 1000]``, ``[0 - 1e5]`` and ``[0 - 1e7]``
+    Shortcut click buttons to try different contrasts for a better visualization under different conditions.
+
 **Visualization Panel**
 """""""""""""""""""""""
 
-A. Color map
-------------
+**A. Color map**
 
 .. image:: images/jf_gui_visualization_panel_1.png
    :alt: Screenshot of the Color map section
@@ -30,8 +54,7 @@ In this section, the user can define the colormap to map scalar data values to c
 - ``Plasma``
 - ``Grey``
 
-B. Streaming & Contrast
------------------------
+**B. Streaming**
 
 .. image:: images/jf_gui_visualization_panel_2.png
    :alt: Screenshot of the Streaming & Contrast section
@@ -39,27 +62,12 @@ B. Streaming & Contrast
    :align: center
 
 ``View Stream``
-   Intercepts and decodes the ZeroMQ stream of frames published by the Jungfraujoch receiver.
+   Starts the stream of frames after properly decoding the ZeroMQ stream of frames published by the Jungfraujoch receiver.
 
-``Apply Auto Contrast``
-   Dynamically adjusts the contrast of displayed frames. 
-   
-   .. tip:: 
-    
-        The algorthim retains values only between the 1st and the 99th percentile of the value range. One advantage is to throw out any non-physical outlier values such as overflows.
+``Display Interval (ms)``
+   Defines the interval between each two displayed frames i.e. the frame display rate of the UI.
 
-``Reset Contrast``
-    Turn off the auto-contrast and reload preset contrast values from Redis. Four other presets can also be used.
-
-    .. tip:: 
-    
-        Shortcut buttons are available to try different contrasts for a better visualization under different conditions
-
-``Acquisition Interval (ms)``
-   Defines the interval between each two displayed frames i.e. the frame rate.
-
-C. Jungfraujoch Control Panel
------------------------------
+**C. Jungfraujoch Control Panel**
 
 .. image:: images/jf_gui_visualization_panel_3.png
    :alt: Screenshot of the Jungfraujoch Control Panel section
@@ -67,10 +75,10 @@ C. Jungfraujoch Control Panel
    :align: center
 
 ``Connect to Jungfraujoch``
-    Establishes a connection with the Jungfraujoch back-end.
+    Displays the connection state between the UI and the Jungfraujoch back-end. Possible states are, hopefully, self-explanatory and include: ``Disconnected``, ``Communication OK``, ``Connection Timed Out`` and ``Connection Failed``.
 
 ``Live stream``
-    Displays summed frames.
+    Displays the state of the Live stream. Possible states are: ``Unknown``, ``Live stream of frames is ON`` and ``Live stream has been stopped``.
 
     .. tip:: 
     
@@ -78,28 +86,31 @@ C. Jungfraujoch Control Panel
         The reason to have a limit is that Jungfraujoch (the data back-end) allocates buffers depending on the amount of frames it expects to collect. Setting a much larger number will make the start and stop slower. 
 
 ``Threshold``
-    Defines the energy in keV below which values are cut.
+    Defines the energy in keV below which values are cut. This cut is done before the frame summation on the FPGA card.
 
     .. tip:: 
-        In the Jungfraujch, thresholding is enabled when the entered value ``th`` is positive i.e. 
+        In the Jungfraujoch, thresholding is enabled when the entered value ``th`` is positive i.e. 
 
         - ``th = 0`` : Thresholding is disabled
         - ``th > 0`` : Pixel values below ``th`` are reset to zero.
 
-``wait``
-    If checked, this option freezes the GUI during data collection.
+``wait on stream``
+    If checked, this option freezes the GUI during live stream and data collection.
 
 ``Collect``
-    Starts the recording of streamed frames.
+    Starts the recording of streamed frames. Files are saved as HDF5 files with comprehensive metadata (See :ref:`jungfraujoch` page)
 
 ``Cancel``
     Ends any ongoing measurement of the Junfraujoch (live streaming, data collection...)
 
 ``Record Full Pedestal``
-    Records and subtracts the dark frames. Temporarily gets unresponsive to any controls (several seconds). Pedestal data is saved in the Jungfraujoch (not in GUI).
+    Records and subtracts the dark frames.
+
+    .. tip::
+        In order to prevent any user-initiated interruptions, the pedestal substraction has been made a blocking operation which temporarily makes the UI unresponsive to any controls.
+        Pedestal data is saved in the Jungfraujoch usually running on a server machine.
     
-D. Detector
-----------------
+**D. Detector**
 
 .. image:: images/jf_gui_visualization_panel_4.png
    :alt: Screenshot of the Detector section
@@ -116,8 +127,7 @@ D. Detector
 **TEM Controls**
 """"""""""""""""
 
-A. Connection to TEM
-------------------------
+**A. Connection to TEM**
 
 .. figure:: images/jf_gui_tem_controls_1.png
    :alt: Screenshot of the Connection to TEM section
@@ -127,53 +137,70 @@ A. Connection to TEM
 ``Check TEM Connection``
     Starts communication with TEM.
 
-``Get TEM status``
-    Displays the TEM status in the terminal.
-
-    - ``recording`` : When checked, allows to save the TEM status in a .log file.
+``Polling Freq``
+    Editable field that allows the user to tune the frequency of the live queries that the GUI sends to the TEM API.
 
 ``Click-on-Centering``
     Activates stage control by clicking the image.
+    The clicked-on point is moved to fit at the center of the rectangular overlay.
 
-B. Beam Sweep & Focus
--------------------------
+**B. Beam Sweep & Focus**
 
 .. figure:: images/jf_gui_tem_controls_2.png
    :alt: Screenshot of the Beam Sweep & Focus section
    :width: 380px
    :align: center
 
-``Beam Autofocus``
-    Sweeps IL1 and ILstig values.
+``Accelerating potential (HT)``
+    Voltage used to accelerate electrons
 
-    .. tip::
-        Detail all the fields
+``Gaussian Fit``
+    Fits a (super) gaussian on the projected electron beam. Usually used to determine the beam center and assess the beam focus.
 
+``Enable pop-up Window``
+    If checked, cretes a pop-up window displaying curves of eveolution of fitted parameters of the on-live Gaussian fitting.
 
-C. Rotation & Stage Control
--------------------------------
+``X_center (px)``
+    Abscissa of the Gaussian center in the coordinate system of the dock area.
+
+``Y_center (px)``
+    Ordinate of the Gaussian center in the coordinate system of the dock area.
+
+``Sigma x (px)``
+    Length of the major (longer) axis of the fitted ellipse (representing the 2D Gaussian).
+
+``Sigma y (px)``
+    Length of the minor (shorter) axis of the fitted ellipse.
+
+``Autofocus``
+    Sweeps IL1 and ILstig values in order to focus the beam i.e. (i) most round and (ii) smallest possible probe in Diffraction mode.
+
+``fast``
+    Checkbox that allows an optimized focusing algorithm to run when the ``Autofocus`` is clicked-on [Still under progress]
+
+**C. Rotation/Record & Stage Control**
 
 .. figure:: images/jf_gui_tem_controls_3.png
    :alt: Screenshot of the Rotation & Stage Control section
    :width: 380px
    :align: center
 
-``Rotation``
+``Rotation/Record``
     Starts stage rotation to the target angle. The beam is unblanked during rotation and blanked when rotation ends.
     
     - ``with Writer``: Synchronizes the HDF writer with rotation.
-    - ``JFJ``: Saves data in JFJ-server (NOETHER).
     - ``Auto reset``: Resets the tilt to 0 degrees after rotation.
     - ``Start angle``: Read-only field diplaying the current angle value (deg)
     - ``Target angle``: Editable fied to set end angle value (deg) of rotation.
 
 ``Rotation Speed``
     Adjusts rotation speed before starting the rotation. Also updates the rotation_speed_idx variable of the Configuration Manager in the data base.
+    Options are ``0.5``, ``1``, ``2`` and ``10 deg/s``. 
 
-``Stage Ctrl``
+``Fast movement``
     Commands fast relative movements (±10 µm) and rotation (±10°) of the stage. 
 
-``Mag Mode``
+``Magnification Mode``
     Switches and displays (on the terminal) the current magnification mode.
 
     .. tip::
@@ -185,6 +212,9 @@ C. Rotation & Stage Control
 
         More details on the PyJEM page: https://pyjem.github.io/PyJEM/interface/PyJEM.TEM3.html#PyJEM.TEM3.EOS3.SelectFunctionMode
 
+``Blank/Unblanck beam``
+    Toggle button that blanks or unblanks the electron beam.
+
 ``Positions``
     Dropdown menu to set the X-Y positions of the stage
 
@@ -195,14 +225,7 @@ C. Rotation & Stage Control
 **File Operations**
 """""""""""""""""""
 
-.. warning::
-
-    TIFF-Writer and HDF5-Writer have not been tested with JFJ. 
-
-    - Please use the ``Collect`` push button in **Visualization Panel** instead.
-
-A. Redis Store Settings
-------------------------
+**A. Redis Store Settings**
 
 .. image:: images/jf_gui_file_operations_1.png
    :alt: Screenshot of the Redis Store Settings section
@@ -227,28 +250,9 @@ A. Redis Store Settings
     - During edition, the entered values/text will be displayed in orange. 
     - Press [ENTER] to confirm modifications and values will be uploaded to the data base.
 
-B. TIFF Writer
---------------
+**B. HDF5 Output**
 
 .. image:: images/jf_gui_file_operations_2.png
-   :alt: Screenshot of the TIFF Writer section
-   :width: 380px
-   :align: center
-
-``Tiff File Name``
-    Area to define the name of the TIFF file and its index. It contains:
-
-    - First line-edit is read-only and displays the folder where TIFF files are saved.
-    - Second line-edit is modifiable (ASCII characters and underscores only) and is meant for the file name.
-    - Spinbox is modifiable, is incremented after each writing and represents the index of the written TIFF.
-
-``Accumulate in TIFF``
-    Accumulates a specified number of frames in the TIFF file.
-
-C. HDF5 Writer
---------------
-
-.. image:: images/jf_gui_file_operations_3.png
    :alt: Screenshot of the HDF5 Writer section
    :width: 380px
    :align: center
@@ -261,3 +265,29 @@ C. HDF5 Writer
 
 ``H5 Output Path``
     Read-only field showing the path where datasets are saved.
+
+**C. HDF5 Output**
+
+.. image:: images/jf_gui_file_operations_3.png
+   :alt: Screenshot of the Snapshot Writer section
+   :width: 380px
+   :align: center
+
+``Snapshot file prefix*``
+    Enter the file prefix for the HDF5 file of the snapshot.
+
+``index*``
+    Set the file index for the file.
+
+``Write Stream as a snapshot-H5``
+    Stars the HDF5 writing of the snapshot. The snapshot triggers the JFJ data collection for a user-specified time lapse that is set to 1 second (1000 msec) by default.
+
+**D. Result of Processing**
+
+.. image:: images/jf_gui_file_operations_4.png
+   :alt: Screenshot of the XDS processing section
+   :width: 380px
+   :align: center
+
+``XDS``
+    Dislays the state of the XDS post-processing of the collected data on the server.    

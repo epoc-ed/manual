@@ -1,15 +1,16 @@
+.. _jungfraujoch:
+
 Jungfraujoch
---------------
+------------
 
 Jungfraujoch is a FPGA based data backed developed by Filip Leonarski. It started as a project focused on MX at synchrotrons
 but has evolved to general data backed.
 
 - Source code: https://gitlab.psi.ch/jungfraujoch/nextgendcu
-- Documentation: https://gitlab.psi.ch/jungfraujoch/nextgendcu/-/tree/main/docs?ref_type=heads
-
+- Documentation: https://jungfraujoch.readthedocs.io/en/latest/
 
 Installation
-""""""""""""""
+""""""""""""
 
 The Jungfraujoch FPGA card is mounted in noehter and the detector is directly connected using optical fibers.
 
