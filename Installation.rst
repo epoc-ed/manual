@@ -3,8 +3,8 @@ Installation
 
 Below is a brief "How-To" guide that summarizes the steps for building a conda package from a local recipe.
 
-Workflow
-""""""""
+Install the GUI as a conda package
+""""""""""""""""""""""""""""""""""
 
 **1. Clone the repository**
 
