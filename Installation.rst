@@ -4,8 +4,8 @@ Installation
 Below is a brief "How-To" guide that summarizes the steps for building the JF_GUI as a conda package from a local recipe.
 
 
-**Create environment for the GUI**
-""""""""""""""""""""""""""""""""""
+**A. Create environment for the GUI**
+"""""""""""""""""""""""""""""""""""""
 
 **1. Clone the repository**
 
@@ -42,8 +42,8 @@ With your environment active, install all packages from your ``requirements.txt`
     pip install -r requirements.txt
 
 
-**Install the JF_GUI as a conda package**
-"""""""""""""""""""""""""""""""""""""""""
+**B. Install the JF_GUI as a conda package**
+""""""""""""""""""""""""""""""""""""""""""""
 
 At this point, you need to have completed steps in the previous section.
 
