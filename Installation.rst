@@ -1,18 +1,53 @@
 Installation
 ------------
 
-Below is a brief "How-To" guide that summarizes the steps for building a conda package from a local recipe.
+Below is a brief "How-To" guide that summarizes the steps for building the JF_GUI as a conda package from a local recipe.
 
-Install the GUI as a conda package
+
+**Create environment for the GUI**
 """"""""""""""""""""""""""""""""""
 
 **1. Clone the repository**
+
+Clone the git repository on your local machine:
 
 .. code-block:: bash
 
     git clone git@github.com:epoc-ed/GUI.git
 
-**2. Make sure your project is well structured**
+
+**2. Create a New Conda Environment**
+
+Open your terminal (or Anaconda Prompt on Windows) and run:
+
+.. code-block:: bash
+
+    conda create --name jf_gui python=3.10
+
+**3. Activate the Environment**
+
+Now activate your new environment:
+
+.. code-block:: bash
+
+    conda activate jf_gui
+
+**4.Install Packages Using pip**
+
+With your environment active, install all packages from your ``requirements.txt`` by running:
+
+.. code-block:: bash
+
+    cd jungfrau_gui
+    pip install -r requirements.txt
+
+
+**Install the JF_GUI as a conda package**
+"""""""""""""""""""""""""""""""""""""""""
+
+At this point, you need to have completed steps in the previous section.
+
+**1. Make sure your project is well structured**
 
 The root directory should include the following files:
 
@@ -30,7 +65,7 @@ For example::
     └─ conda-recepie/
         └─ meta.yaml
 
-**3. Build the Package with ``conda-build``**
+**2. Build the Package with ``conda-build``**
 
 From the project's root directory:
 
@@ -41,7 +76,7 @@ From the project's root directory:
 
 This will produce a ``.conda`` (or ``.tar.bz2``) file in your ``conda-bld/<platform>`` directory (often ``conda-bld/noarch`` for noarch packages).
 
-**4. Installing the Newly Built Package**
+**3. Installing the Newly Built Package**
 
 Normally, you can install the package from the local build by:
 
