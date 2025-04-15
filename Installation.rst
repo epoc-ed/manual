@@ -93,4 +93,4 @@ In that case, you can install the package directly from the ``.conda`` (or ``.ta
 
     conda install <path/to/built/package>
     # for example:
-    conda install /opt/miniforge/miniforge3/envs/stable/conda-bld/noarch/jungfrau_gui-2025.04.14-py_0.conda
+    conda install /opt/miniforge/miniforge3/envs/jf_gui/conda-bld/noarch/jungfrau_gui-2025.04.14-py_0.conda
