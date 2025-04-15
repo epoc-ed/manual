@@ -60,6 +60,8 @@ The root directory should include the following files:
 For example::
 
     my_project/
+    ├─ jungfrau_gui
+    ├─ ............
     ├─ setup.py
     ├─ MANIFEST.in
     └─ conda-recepie/
