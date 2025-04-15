@@ -118,10 +118,10 @@ In this section, the user can define the colormap to map scalar data values to c
    :align: center
 
 ``Magnification``, ``Distance``: 
-    Read-only fields that respectively the magnification and the distance values (TEM mode only). 
+    Read-only fields that respectively display the magnification (Imaging Mode) and the distance (Diffraction Mode) values for TEM mode only. 
 
 ``scale``
-    Checkbox that displays the scale bar (1 um) or the ring (1 A).
+    Checkbox that displays the scale bar (1 μm) or the ring (1 Å).
 
 
 **TEM Controls**
@@ -152,13 +152,13 @@ In this section, the user can define the colormap to map scalar data values to c
    :align: center
 
 ``Accelerating potential (HT)``
-    Voltage used to accelerate electrons
+    Voltage used to accelerate electrons.
 
 ``Gaussian Fit``
-    Fits a (super) gaussian on the projected electron beam. Usually used to determine the beam center and assess the beam focus.
+    Fits a function, typically a variant of a 2D-Gaussian, to the projected electron beam. Can be used to determine the beam center and assess the beam focus.
 
 ``Enable pop-up Window``
-    If checked, cretes a pop-up window displaying curves of eveolution of fitted parameters of the on-live Gaussian fitting.
+    If checked, creates a pop-up window displaying curves of evolution of fitted parameters of the on-live Gaussian fitting.
 
 ``X_center (px)``
     Abscissa of the Gaussian center in the coordinate system of the dock area.
@@ -176,7 +176,7 @@ In this section, the user can define the colormap to map scalar data values to c
     Sweeps IL1 and ILstig values in order to focus the beam i.e. (i) most round and (ii) smallest possible probe in Diffraction mode.
 
 ``fast``
-    Checkbox that allows an optimized focusing algorithm to run when the ``Autofocus`` is clicked-on [Still under progress]
+    Checkbox that allows an optimized focusing algorithm to run when the ``Autofocus`` is clicked-on [**Still under progress**]
 
 **C. Rotation/Record & Stage Control**
 
@@ -188,13 +188,13 @@ In this section, the user can define the colormap to map scalar data values to c
 ``Rotation/Record``
     Starts stage rotation to the target angle. The beam is unblanked during rotation and blanked when rotation ends.
     
-    - ``with Writer``: Synchronizes the HDF writer with rotation.
-    - ``Auto reset``: Resets the tilt to 0 degrees after rotation.
+    - ``with Writer``: Synchronizes the HDF5 writer with rotation for ED data collection.
+    - ``Auto reset``: Resets the tilt to 0 degrees after rotation ends [**This operation sets rotation speed to** ``10 deg/s``.]
     - ``Start angle``: Read-only field diplaying the current angle value (deg)
     - ``Target angle``: Editable fied to set end angle value (deg) of rotation.
 
 ``Rotation Speed``
-    Adjusts rotation speed before starting the rotation. Also updates the rotation_speed_idx variable of the Configuration Manager in the data base.
+    Sets the rotation velocity before starting the rotation. Also updates the ``rotation_speed_idx`` variable of the Configuration Manager in the data base.
     Options are ``0.5``, ``1``, ``2`` and ``10 deg/s``. 
 
 ``Fast movement``
@@ -210,7 +210,7 @@ In this section, the user can define the colormap to map scalar data values to c
         - **2=Low MAG** : Low magnification mode
         - **4=DIFF**    : Diffraction mode (Disables auto-contrast)
 
-        More details on the PyJEM page: https://pyjem.github.io/PyJEM/interface/PyJEM.TEM3.html#PyJEM.TEM3.EOS3.SelectFunctionMode
+        More details on the PyJEM page: https://pyjem.github.io/PyJEM/interface/
 
 ``Blank/Unblanck beam``
     Toggle button that blanks or unblanks the electron beam.
@@ -233,7 +233,7 @@ In this section, the user can define the colormap to map scalar data values to c
    :align: center
 
 ``Experiment Class``
-    Specifies for whom the data is collected (e.g., UniVie, External, IP).
+    Specifies for whom the data is collected (e.g., ``UniVie``, ``External``, ``IP``).
 
 ``User Name*``
     Enter the PI (Person of Interest).
@@ -248,7 +248,7 @@ In this section, the user can define the colormap to map scalar data values to c
 
     - All the fields marked with an asterisk (*) are manually editable. 
     - During edition, the entered values/text will be displayed in orange. 
-    - Press [ENTER] to confirm modifications and values will be uploaded to the data base.
+    - Press [``ENTER``] to confirm modifications and values will be uploaded to the data base.
 
 **B. HDF5 Output**
 
@@ -261,10 +261,10 @@ In this section, the user can define the colormap to map scalar data values to c
     Enter the file prefix (ASCII characters and underscores only).
 
 ``index*``
-    Set the file index for the HDF5 file.
+    Set the file index for the HDF5 file. Incrementation is automatic but can be edited by checking the ``Edit`` checkbox.
 
 ``H5 Output Path``
-    Read-only field showing the path where datasets are saved.
+    Read-only field showing the path where datasets are saved on the server.
 
 **C. Snapshot Writer**
 
@@ -277,7 +277,7 @@ In this section, the user can define the colormap to map scalar data values to c
     Enter the file prefix for the HDF5 file of the snapshot.
 
 ``index*``
-    Set the file index for the file.
+    Set the file index for the file. Reflects the same state as the ``index`` spinbox of the **HDF5 Output** section.
 
 ``Write Stream as a snapshot-H5``
     Stars the HDF5 writing of the snapshot. The snapshot triggers the JFJ data collection for a user-specified time lapse that is set to 1 second (1000 msec) by default.
