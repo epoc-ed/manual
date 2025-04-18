@@ -291,3 +291,62 @@ In this section, the user can define the colormap to map scalar data values to c
 
 ``XDS``
     Dislays the state of the XDS post-processing of the collected data on the server.    
+
+**Tips / Known bugs, as of 18 Apr 2025**
+"""""""""""""""""""""""
+
+.. note::
+
+    - If the GUI gets slow down especially on switching mag-modes, restarting the running relay-server at TEM and reconnecting to it may improve the response.
+    - If ``Rotation/Record`` stops at the start of rotation, manually reconnect with TEM by clicking ``Check TEM Connection`` and then click ``Rotation/Record`` (it should display ``Stop`` in this case) a few times, intermittently. The status of GUI will be restored and the data-collection can be started again. This error should happen before starting the data-recording and no error files are saved in the server.
+
+**Extended Functions**
+"""""""""""""""""""""""
+
+Following features are activated with '-e' option. All of them are under development and testing. **Please use them with special care.**
+
+.. figure:: images/jf_gui_tem_controls_1.png
+   :alt: Screenshot of the Connection to TEM section
+   :width: 380px
+   :align: center
+
+``Click-on-Centering``
+    When the TEM-stage is tilted, the centering works by adjusting **the stage Z-height** with given coordinates. It is currently recommended that this adjustment be used only for tilts of 10-20 deg., because of the larger error from the 2D projection with higher tilt.
+
+.. image:: images/jf_gui_visualization_panel_2_ex.png
+   :alt: Screenshot of the Streaming & Contrast section with option
+   :width: 380px
+   :align: center
+
+``Frames summed``
+    Changes the summation frames, only for rotation data-collection. Default value: 100
+
+.. image:: images/jf_gui_visualization_panel_4_ex.png
+   :alt: Screenshot of the Detector section with option
+   :width: 380px
+   :align: center
+
+``Calc Brightness on Detector/Sample``
+    Estimates the number of incoming electrons as the value of the most frequent bin of image histogram and convert it pA/cm^2/s unit (on detector) and e^-/Å^2/s (on sample) unit. As this function expects electrons are directly hits the detector surface, no large particles should include in the illumination area (usually tolerant of minor occupation by lacey-grid threads). These values are saved also in the hdf file as metadata.
+
+.. figure:: images/jf_gui_tem_controls_3_ex1.png
+   :alt: Screenshot of the Rotation & Stage Control section with option
+   :width: 380px
+   :align: center
+
+``mirror``
+    Automatically set the target angle assuming the symmetric stage-rotation, with a small margin (currently 2 deg.) for safety.
+
+.. figure:: images/jf_gui_tem_controls_3_ex2.png
+   :alt: Screenshot of the Rotation & Stage Control section with option
+   :width: 380px
+   :align: center
+
+``Move Screen``
+    Moves up/down the screen of TEM. This requires the updated version of the relay-server at TEM.
+    
+``Snapshot``
+    Takes a snapshot of current view and display the down-sized image in the sideview. This is intended to be used for temporal memory (will not be saved in any files).
+
+``Load/Save``
+    When no items are registered in the position-list, loads the previous session data from the json-formatted file on the server. When some items are in the list, adds the items and saves them to the json.
