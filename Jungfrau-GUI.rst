@@ -142,7 +142,7 @@ In this section, the user can define the colormap to map scalar data values to c
 
 ``Click-on-Centering``
     Activates stage control by clicking the image.
-    The clicked-on point is moved to fit at the center of the rectangular overlay.
+    The clicked-on point is moved to fit at the center of detector (MAG mode) or at the center of rectangular overlay (LowMAG mode). The function is disabled at the DIFF-mode.
 
 **B. Beam Sweep & Focus**
 
@@ -173,7 +173,7 @@ In this section, the user can define the colormap to map scalar data values to c
     Length of the minor (shorter) axis of the fitted ellipse.
 
 ``Autofocus``
-    Sweeps IL1 and ILstig values in order to focus the beam i.e. (i) most round and (ii) smallest possible probe in Diffraction mode.
+    Sweeps IL1 (Diff-focus) and ILstig values in order to focus the beam i.e. (i) most round and (ii) smallest possible probe in Diffraction mode.
 
 ``fast``
     Checkbox that allows an optimized focusing algorithm to run when the ``Autofocus`` is clicked-on [**Still under progress**]
