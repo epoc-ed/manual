@@ -142,7 +142,7 @@ In this section, the user can define the colormap to map scalar data values to c
 
 ``Click-on-Centering``
     Activates stage control by clicking the image.
-    The clicked-on point is moved to fit at the center of detector (MAG mode) or at the center of rectangular overlay (LowMAG mode). The function is disabled at the DIFF-mode.
+    The clicked-on point is moved to fit at the center of detector (MAG mode) or at the center of rectangular overlay (LowMAG mode). The function is disabled in DIFF-mode.
 
 **B. Beam Sweep & Focus**
 
