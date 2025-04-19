@@ -113,7 +113,7 @@ CameraPC (hodgkin)
 
        cd ~
        mamba activate stable
-       jungfrau_gui -t
+       jungfrau_gui
 
    **5.b. For developers (dev environment on hodgkin)**
 
