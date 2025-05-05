@@ -99,6 +99,11 @@ CameraPC (hodgkin)
 
     $ python -i /data/epoc/storage/jem2100plus/metadata_update_server.py
 
+.. note::
+
+    If the metadata-updater script seems to be stuck in an error-loop, please recover it as follows;
+    Stop the process with ```ctrl + z```, kill it with ```kill %1```, restore the status to foreground with ```fg```, then restart the script.
+
 3. Open a web browser and navigate to the Jungfraujoch GUI at `http://noether:5232/`.
 
 4. Initialize the detector and backend by pressing the **INITIALIZE** button in the web interface.
