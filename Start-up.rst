@@ -110,7 +110,7 @@ CameraPC (hodgkin)
 
 5. Launch the GUI using one of the following options:
 
-   **5.a. For users (stable environment on hodgkin)**
+   **5.a. Stable version for users (stable environment on hodgkin)**
 
    Run the following commands:
 
@@ -120,17 +120,16 @@ CameraPC (hodgkin)
        mamba activate stable
        jungfrau_gui
 
-   **5.b. For developers (dev environment on hodgkin)**
+   **5.b. Pre-release (beta) version for users/developers (available also under stable environment on hodgkin)**
 
    Run the following commands:
 
    .. code-block:: bash
 
-       mamba activate dev
+       mamba activate stable
        cd ~/developer/GUI/
        git branch --contains
-       git switch main
-       python launch_gui.py -t [-s tcp://noether:5501] [-f]
+       git switch release-v2025.04.23
+       python launch_gui.py [-s tcp://noether:5501] [-f]
 
-
-
+⚠️ Modify the date part of the version name if needed.
