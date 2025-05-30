@@ -9,6 +9,10 @@ but has evolved to general data backed.
 - Source code: https://gitlab.psi.ch/jungfraujoch/nextgendcu
 - Documentation: https://jungfraujoch.readthedocs.io/en/latest/
 
+.. attention::
+
+    Jungfraujoch will move to https://gitea.psi.ch in the future, since the PSI gitlab is being phased out.
+
 Installation
 """"""""""""
 
@@ -16,29 +20,75 @@ The Jungfraujoch FPGA card is mounted in noehter and the detector is directly co
 
 .. TODO! expand on physical setup
 
-The code is compiled locally on noehter and the binaries are stored in `/opt/jfjoch`.
+The code is compiled locally on noehter ``/home/psi/nextgendcu`` and the binaries are stored in ``/opt/jfjoch``.
+
+
+**Installation location:**
 
 .. code-block:: bash
+
 
     #installation location
     /opt/jfjoch
 
     #Detector configuration
-    /opt/etc/broker_jf500k.json
+    /opt/etc/broker_jf1M.json
 
-    #Web frontend (To be moved)
-    /home/psi/jfjoch_frontend
+    #Web frontend 
+    /opt/jfjoch_frontend
 
     #Detector calibration
     /opt/cal
 
 
 
+Updating Jungfraujoch
+=======================
+
+.. attention::
+
+    Always check the latest deployment documentation before updating JFJ. 
+    https://jungfraujoch.readthedocs.io/en/latest/DEPLOYMENT.html
 
 
+**Update the FPGA firmware**
 
-File content
-================
+#. Download the latest firmware from the Jungfraujoch repository.
+#. Make sure the card is not un use by unloading the kernel module [TBC]:
+
+   .. code-block:: bash
+
+        sudo rmmod jfjoch
+
+#. Flash the firmware to the FPGA card using xbflash.qspi
+#. Server needs a hard reboot ``sudo ipmitool chassis power cycle``
+
+**Update the code**
+
+.. code-block:: bash
+
+    # Update the Jungfraujoch code
+    cd /home/psi/nextgendcu
+    git pull
+
+    # Compile the code
+    make -j20
+
+    # Install JFJ (will need sudo/root access to update the kernel module)
+    make install 
+
+**Copy the new frontend**
+
+#. Download the frontend from the Jungfraujoch repository.
+#. Copy the new frontend to the web server directory:
+
+   .. code-block:: bash
+
+        tar -xvf jfjoch_frontend.tar.gz -C /opt/jfjoch_frontend
+
+
+JFJ hdf5 file content
+=======================
 
 .. code-block:: bash
     
