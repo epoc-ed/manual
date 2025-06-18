@@ -6,6 +6,10 @@ Jungfrau GUI
 
     This page summarizes the main functionalities of the GUI. Each sections gives a brief overview of the avalable buttons/fileds and their functionality in each respective tab of the user interface.  
 
+.. note::
+
+    This document describes features of the release-v2025.04.23 version.
+    
 Below is a screenshot of the Image area (left) and the functionalities tabs (right):
 
 .. image:: images/jf_gui.png
