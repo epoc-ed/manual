@@ -25,3 +25,12 @@ Processing diffraction datasets
     dials.index strong.refl imported.expt detector.fix=distance
     dials.refine indexed.expt indexed.refl scan_varying=true detector.fix=distance
     dials.integrate refined.expt refined.refl
+
+.. tip::
+
+   The following file can be an exemplar :download:`LaB6 <./sampledata/002_LaB6_RT_30cm_2degs_newfilament_test_2025-06-02_2314_master.h5>`
+
+   - Local path in CCSA, UniWien: /…/jem2100plus/UniVie/CCSA/2025/LaB6/2025-06-02/002_LaB6_RT_30cm_2degs_newfilament_test_2025-06-02_2314_master.h5
+   - Sample: LaB6
+   - Lattice information: Cubic Pm-3m (221), a=4.15 (Å)
+   - Data collected on 2nd June 2025
