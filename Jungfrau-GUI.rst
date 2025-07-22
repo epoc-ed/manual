@@ -8,7 +8,7 @@ Jungfrau GUI
 
 .. note::
 
-    This document describes features of the release-v2025.04.23 version.
+    This document describes features of the v2025.7.21 version of the software.
     
 Below is a screenshot of the Image area (left) and the functionalities tabs (right):
 
