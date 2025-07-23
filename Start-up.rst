@@ -132,4 +132,4 @@ CameraPC (hodgkin)
        git switch release-v2025.04.23
        python launch_gui.py [-s tcp://noether:5501] [-f]
 
-⚠️ Modify the date part of the version name if needed.
+⚠️ Modify the date part of the version name if needed. The 'release-v2025.04.23' is identical to the stable version as of 21st July 2025.
