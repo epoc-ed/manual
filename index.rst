@@ -16,6 +16,7 @@ epoc documentation
 
    Documentation built using: 
 
+   - jungfrau_gui: |jungfrau_gui_version|
    - epoc version: |epoc_version|
    - simple_tem: |simple_tem_version|
  

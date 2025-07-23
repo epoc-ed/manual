@@ -8,7 +8,7 @@ Jungfrau GUI
 
 .. note::
 
-    This document describes features of the release-v2025.04.23 version.
+    This document describes features of the v2025.7.21 version of the software.
     
 Below is a screenshot of the Image area (left) and the functionalities tabs (right):
 
@@ -333,11 +333,12 @@ Following features are activated with '-e' option. All of them are under develop
     :align: center
 
 ``Calc Brightness on Detector/Sample``
-    Estimate the number of incoming electrons as the value of the most frequent bin of image histogram and convert it to **pA cm⁻² s⁻¹** (detector) and **e⁻ Å⁻² s⁻¹** (sample).
+    Estimate the number of incoming electrons as the value of the most frequent bin of image histogram and convert it to **pA cm⁻²** (detector) and **e⁻ Å⁻² s⁻¹** (sample).
 
     .. note::
         This function assumes that electrons strike the detector surface directly, so the illuminated area should not contain large particles (minor lacey‑grid threads are usually tolerated).  
         The calculated brightness and dose‑rate values are also stored in the HDF5 file as metadata.
+        The unit displayed in the widget (pA/cm2/s) is **wrong**. This will be fixed in the next version.
 
 ----
 

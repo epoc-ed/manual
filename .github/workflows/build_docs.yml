@@ -37,6 +37,13 @@ jobs:
           channels: conda-forge
           auto-activate-base: false
 
+      - name: Install jungfrau_gui (from Git)
+        run: |
+          # Install the GUI package from its repository
+          pip install "git+https://github.com/epoc-ed/GUI.git@main#egg=jungfrau_gui"
+      #     # (Optional) install your own project in editable mode so autodoc finds it
+      #     pip install -e .
+
       - name: Build documentation 
         run: |
             make html 

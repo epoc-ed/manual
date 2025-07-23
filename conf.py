@@ -30,8 +30,13 @@ try:
     epoc_version = metadata.version('epoc')
 except metadata.PackageNotFoundError:
     epoc_version = '0.0.0'
+try:
+    jfgui_version = metadata.version('jungfrau_gui')
+except metadata.PackageNotFoundError:
+    jfgui_version = '0.0.0'
 
 rst_prolog = f"""
+.. |jungfrau_gui_version| replace:: {jfgui_version}
 .. |simple_tem_version| replace:: {simple_tem_version}
 .. |epoc_version| replace:: {epoc_version}
 """
