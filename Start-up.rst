@@ -142,6 +142,8 @@ CameraPC (hodgkin)
 
        mamba activate stable
        cd ~/developer/
-       ./developer_setup.sh
+       source developer_setup.sh
        cd GUI
        python launch_gui.py [-s tcp://noether:5501] [-f]
+
+⚠️ Please **close the terminal** after using this version. Otherwise someone may unintensionally start measurement with the modified setting.
