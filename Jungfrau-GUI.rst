@@ -230,8 +230,8 @@ In this section, the user can define the colormap to map scalar data values to c
    :width: 380px
    :align: center
 
-``Experiment Class``
-    Specifies for whom the data is collected (e.g., ``UniVie``, ``External``, ``IP``).
+``Affiliation``
+    Specifies the affiliation of the sample provider. Select from the list or edit by manual.
 
 ``User Name*``
     Enter the PI (Person of Interest).
