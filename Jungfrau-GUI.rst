@@ -29,6 +29,7 @@ Below is a screenshot of the Image area (left) and the functionalities tabs (rig
 - The main widget of the UI is a dock area of the ``pyqtgraph`` module.
 - It displays an area of 1064 pixel rows and 1030 pixel columns for the 1 megapixel (1M) version of the JUNGFRAU.
 - Frames being received by the ZeroMQ socket are decoded using ``cbor2``, reshaped into a 1030x1064 array of ``int32`` and then displayed on the image area.
+- The rectangle indicator of LM/Mag switching can be moved by dragging with mouse. The moved position will not be saved.
 
 **B. Contrast Controls**
 
