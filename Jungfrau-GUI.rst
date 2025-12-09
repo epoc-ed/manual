@@ -297,6 +297,7 @@ In this section, the user can define the colormap to map scalar data values to c
 
     - If the GUI gets slow down especially on switching mag-modes, restarting the running relay-server at TEM and reconnecting to it may improve the response.
     - If ``Rotation/Record`` stops at the start of rotation, manually reconnect with TEM by clicking ``Check TEM Connection`` and then click ``Rotation/Record`` (it should display ``Stop`` in this case) a few times, intermittently. The status of GUI will be restored and the data-collection can be started again. This error should happen before starting the data-recording and no error files are saved in the server.
+    - With pyjem **v3.8**, aperture IDs are not correctly read (``Apt3().GetSize()`` always returns ``0``). Please do not rely on aperture values saved in the HDF files (see: https://github.com/PyJEM/PyJEM/issues/15).
 
 **Extended Functions**
 """"""""""""""""""""""
