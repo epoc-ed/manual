@@ -15,7 +15,8 @@ Processing diffraction datasets
 """""""""""""""""""""""
 
 ``dxtbx.install_format -u FormatHDFJungfrau1MJFJVIE02_multipanel.py``
-    Installation of the specific class file to read the HDF file with DIALS. This should be done if the format of HDF is updated.
+
+    Installation of (the specific class file)[https://github.com/epoc-ed/GUI/blob/developer/jungfrau_gui/metadata_uploader/FormatHDFJungfrau1MJFJVIE02_multipanel.py] to read the HDF file with DIALS. This should be done if the format of HDF is updated.
 
     Then, run the process with each datasets:
 .. code-block:: bash
