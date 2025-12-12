@@ -137,5 +137,10 @@ CameraPC (hodgkin)
        cd ~/developer/epoc-utils
        git switch main
 
-⚠️ Please reactivate the main branch of epoc-utils at the end of the session.
+⚠️ Please reactivate the main branch of epoc-utils at the end of the session:
+
+.. code-block:: bash
+
+    cd ~/developer/epoc-utils
+    git switch main
        
