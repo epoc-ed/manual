@@ -120,30 +120,22 @@ CameraPC (hodgkin)
        mamba activate stable
        jungfrau_gui
 
-   **5.b. Pre-release (beta) version for users/developers (available also under stable environment on hodgkin)**
+   **5.b. Developer version for users/developers (available also under stable python environment on hodgkin)**
 
    Run the following commands:
 
    .. code-block:: bash
 
        mamba activate stable
-       cd ~/developer/GUI/
-       git branch --contains
-       git switch release-v2025.04.23
-       python launch_gui.py [-s tcp://noether:5501] [-f]
-
-⚠️ Modify the date part of the version name if needed. The 'release-v2025.04.23' is identical to the stable version as of 21st July 2025.
-
-   **5.c. Developer version for users/developers (available also under stable environment on hodgkin)**
-
-   Run the following commands:
-
-   .. code-block:: bash
-
-       mamba activate stable
-       cd ~/developer/GUI/
-       git branch --contains
+       cd ~/developer/epoc-utils
+       git switch developer
+       cd ~/developer/GUI
        git switch developer
        python launch_gui.py [-s tcp://noether:5501] [-f] [-e]
+       :
+       :
+       cd ~/developer/epoc-utils
+       git switch main
 
-⚠️ This manual does **not fully cover** function of the developer branch to avoid complexity.
+⚠️ Please reactivate the main branch of epoc-utils at the end of the session.
+       
