@@ -19,76 +19,79 @@ This page documents:
 References
 ~~~~~~~~~~
 
-* Jungfraujoch writer: see ``JFJOCH_WRITER`` documentation (upstream).
-* NeXus NXmx application definition (schema reference).
+* `JFJOCH_WRITER`_ — Jungfraujoch writer file structure (upstream).
+* `NXmx`_ — NeXus NXmx application definition (schema reference).
+* `NXmx_xml`_ — NXmx NXDL definition file (formal schema).
+
+.. _JFJOCH_WRITER: https://jungfraujoch.readthedocs.io/en/latest/JFJOCH_WRITER.html
+.. _NXmx: https://manual.nexusformat.org/classes/applications/NXmx.html
+.. _NXmx_xml: https://github.com/nexusformat/definitions/blob/main/applications/NXmx.nxdl.xml
 
 
 Files produced by Jungfraujoch
 ------------------------------
 
 Jungfraujoch writes a **master file** (high-level metadata + links) and one or more **data files**
-(image stacks and per-image values). Two master-file styles exist upstream (legacy vs VDS),
-but from the GUI perspective the important point is that *data live in data files* while the master
-file holds *links and experiment description*.
+(the actual image stacks). From the GUI perspective, the important point is:
 
-Data-file datasets and master-file mapping
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*The diffraction frames are stored in the data files; the master file aggregates metadata and provides
+convenient links to the data.*
 
-Upstream convention:
+Master file vs data file layout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* The data file contains per-image datasets under ``/entry/detector``.
-* These datasets are mapped/linked into the master file under
-  ``/entry/instrument/detector/detectorSpecific``.
+Master file (overview)
+^^^^^^^^^^^^^^^^^^^^^^
 
-A (non-exhaustive) view of data-file content is shown here for orientation (see ``JFJOCH_WRITER`` docs for the full list):
+The master file (``*_master.h5``) contains the NeXus entry and metadata groups (e.g. ``/entry/instrument``, ``/entry/sample``,
+``/entry/source``). It also contains an ``/entry/data`` group that acts as a **link table** to the individual
+data files:
+
+* ``/entry/data/data_000001``, ``data_000002``, ... are links to frame datasets stored in the corresponding
+  ``*_data_*.h5`` files.
+* The master file therefore *references* the frames but does not store them as a single contiguous dataset.
+
+Data file (frames)
+^^^^^^^^^^^^^^^^^^
+
+Each data file (e.g. ``*_data_000034.h5``) stores the actual frames as a single dataset:
+
+* ``/entry/data/data``  →  shape ``(nframes, ny, nx)``
+
+A non-exhaustive view of the relevant groups is shown below (see ``JFJOCH_WRITER`` for the full structure):
 
 .. list-table::
    :header-rows: 1
-   :widths: 45 55
+   :widths: 15 35 50
 
-   * - Data-file path
-     - Meaning (summary)
-   * - ``/entry/data/data``
-     - Raw image data (stack)
-   * - ``/entry/detector/timestamp``
-     - Per-image timestamps
-   * - ``/entry/detector/exptime``
-     - Per-image exposure time
-   * - ``/entry/detector/number``
-     - Per-image index (may differ if rejection is used)
-   * - ``/entry/detector/storage_cell_image``
-     - Storage cell number (optional)
-   * - ``/entry/detector/packets_expected``
-     - Expected UDP packet count (optional)
-   * - ``/entry/detector/packets_received``
-     - Received UDP packet count (optional)
-   * - ``/entry/detector/data_collection_efficiency_image``
-     - Received/expected ratio (optional)
-   * - ``/entry/MX/*``
+   * - File
+     - Path
+     - Description
+   * - Master
+     - ``/entry/data/data_000001`` ... ``data_000XYZ``
+     - Links to per-run data files / frame datasets
+   * - Data
+     - ``/entry/data/data``
+     - Raw image data (stack: ``nframes × ny × nx``)
+   * - Master (optional)
+     - ``/entry/MX/*``
      - Spot finding / indexing auxiliaries (optional)
-   * - ``/entry/roi/{roi_name}/*``
-     - ROI statistics (optional)
-   * - ``/entry/xfel/*``
-     - XFEL-specific tags (optional)
-
-.. note::
-   The master file may additionally contain user-provided metadata under ``/entry/user`` depending on the
-   acquisition configuration (see ``JFJOCH_WRITER`` docs).
+   * - Master (optional)
+     - ``/entry/azint/*``
+     - Azimuthal integration results (optional)
+   * - Master (optional)
+     - ``/entry/user/*``
+     - User-provided metadata (optional; depends on acquisition configuration)
 
 
 JFGui metadata injection
 --------------------------
 
-The JFGui post-processes the master HDF5 file (or a chosen target HDF5 file) and
-**creates or overwrites** datasets using the helper:
-
-*If the dataset exists, it is deleted and recreated.*
-
-This guarantees the GUI’s values win, but it also means:
-existing attributes, chunking/compression, and original dtypes are not preserved.
+JFGui post-processes the **master** HDF5 file after acquisition and only updates **metadata**
+(i.e. it does not modify the diffraction frames under ``/entry/data``). See :ref:`overwrite-semantics`
+for details on the create-or-replace behavior.
 
 The injected metadata are grouped below by subsystem.
-
 
 1) Detector group
 ~~~~~~~~~~~~~~~~~
@@ -102,7 +105,7 @@ Paths under ``/entry/instrument/detector``:
    * - Path
      - Type
      - Unit
-     - Source / meaning
+     - Description
    * - ``/entry/instrument/detector/detector_name``
      - string
      - -
@@ -137,7 +140,7 @@ Paths under ``/entry/instrument/detector/detectorSpecific``:
    * - Path
      - Type
      - Unit
-     - Source / meaning
+     - Description
    * - ``/entry/instrument/detector/detectorSpecific/element``
      - string
      - -
@@ -162,7 +165,7 @@ Paths under ``/entry/instrument/detector/detectorSpecific``:
    * - Path
      - Type
      - Unit
-     - Source / meaning
+     - Description
    * - ``/entry/source/probe``
      - string
      - -
@@ -185,7 +188,7 @@ These are written under ``/entry/instrument/optics``:
    * - Path
      - Type
      - Unit
-     - Source / meaning
+     - Description
    * - ``.../info_acquisition_date_time``
      - string
      - -
@@ -236,7 +239,7 @@ Apertures:
    * - Path
      - Type
      - Unit
-     - Source / meaning
+     - Description
    * - ``.../CL_ID``
      - uint16
      - (index)
@@ -284,7 +287,7 @@ Lens/deflector state (raw readbacks):
    * - Path
      - Type
      - Unit
-     - Source / meaning
+     - Description
    * - ``.../brightness``
      - uint32
      - (device counts)
@@ -319,7 +322,7 @@ Beam fit / illumination (GUI-derived):
    * - Path
      - Type
      - Unit
-     - Source / meaning
+     - Description
    * - ``.../optical_axis_center_x``
      - float
      - pixel
@@ -362,7 +365,7 @@ Written under ``/entry/instrument/stage``.
    * - Path
      - Type
      - Unit
-     - Source / meaning
+     - Description
    * - ``.../stage_x``
      - float
      - µm
@@ -402,7 +405,7 @@ additional datasets are stored:
    * - Path
      - Type
      - Unit
-     - Source / meaning
+     - Description
    * - ``.../stage_tx_start``
      - float
      - deg
@@ -441,7 +444,7 @@ Written under ``/entry/cif`` as simple text fields to help downstream export.
    * - Path
      - Type
      - Unit
-     - Source / meaning
+     - Description
    * - ``/entry/cif/_diffrn_ambient_temperature``
      - string
      - K
@@ -502,33 +505,15 @@ Some metadata are not direct TEM readbacks; they are **calibrated** using lookup
 * ``stage_tx_axis`` provides an XDS-style rotation-axis unit vector keyed by HT (and magnification regime).
 * ``optical_axis_center_{x,y}`` are detector pixel coordinates defined for the current setup.
 
+.. _overwrite-semantics:
 
 Overwrite semantics
 ~~~~~~~~~~~~~~~~~~~
 
-The JFGui uses "delete then recreate" for each dataset. This is simple and deterministic,
-but it also discards:
+JFGui uses "delete then recreate" for each dataset. This is simple, deterministic, and ensures the GUI-written
+metadata takes precedence. However, it also discards:
 
 * existing dataset attributes,
 * chunking/compression,
 * original dtype choices.
 
-
-External schema references
---------------------------
-
-The upstream file layout targets **NeXus NXmx** conventions (master/data and linking).
-See:
-
-* NeXus NXmx application definition (schema reference)
-* Jungfraujoch writer docs (implementation reference)
-
-.. rubric:: Links
-
-* `JFJOCH_WRITER`_
-* `NXmx`_
-* `NXmx_xml`_
-
-.. _JFJOCH_WRITER: https://jungfraujoch.readthedocs.io/en/latest/JFJOCH_WRITER.html
-.. _NXmx: https://manual.nexusformat.org/classes/applications/NXmx.html
-.. _NXmx_xml: https://github.com/nexusformat/definitions/blob/main/applications/NXmx.nxdl.xml
