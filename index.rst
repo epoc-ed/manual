@@ -41,6 +41,7 @@ TOC
 
    Installation
    Jungfraujoch
+   HDF5Metadata
 
 
 .. toctree::
