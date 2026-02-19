@@ -43,10 +43,15 @@ TOC
    Jungfraujoch
    HDF5Metadata
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Architecture:
+
+   ui_architecture
 
 .. toctree::
    :maxdepth: 1
-   :caption: API Reference:
+   :caption: API Reference (External):
 
    ConfigurationClient
    TEMClient

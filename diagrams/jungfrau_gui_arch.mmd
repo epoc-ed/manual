@@ -1,0 +1,76 @@
+---
+config:
+  theme: redux
+  layout: dagre
+  look: neo
+---
+flowchart TB
+ subgraph TEM["TEM PC"]
+        TSR["server_tem.py<br>(pyJEM control endpoint)"]
+        T["JEOL JEM2100PLUS<br>(Microscope)"]
+  end
+ subgraph NOE["Noether (data server)"]
+        R[("Redis config DB")]
+        Z["Jungfraujoch backend<br>(jfjoch_broker/jfjoch_writer)<br>ZeroMQ PUB/SUB"]
+        D[("HDF5 / data storage")]
+        H5MU["Hdf5MetadataUpdater server<br>(metadata_update_server.py)<br>ZMQ REQ/REP"]
+  end
+ subgraph APP["Jungfrau GUI (Qt App)"]
+        M["main() (main_ui.py)<br>- connect Redis (mandatory)<br>- create ZmqReceiver<br>- create ApplicationWindow<br>- app.exec()"]
+        QA["QApplication<br>(PySide6.QtWidgets)"]
+  end
+ subgraph TABS["Tabs"]
+        VP["VisualizationPanel (visualization_panel.py)"]
+        TC["TemControls (tem_controls.py)"]
+        FO["FileOperations (file_operations.py)"]
+  end
+ subgraph AWBOX["ApplicationWindow (ui_main_window.py)<br>(QMainWindow subclass)"]
+        AW["ApplicationWindow instance<br>(owns pg.ImageItem / pg.RectROI / pg.HistogramLUTItem)"]
+        TABS
+  end
+ subgraph TASKS["Tasks (multithreads)"]
+        RT["RecordTask (record_task.py)"]
+        CT["CenteringTask (stage_centering_task.py)"]
+        AFT["AutoFocusTask (beam_focus_task.py)"]
+        GIT["GetInfoTask (get_teminfo_task.py)"]
+  end
+    TC --> ACT["TEMAction (tem_action.py)"]
+    ACT --> CW["ControlWorker (control_worker.py)"]
+    CW --> RT & CT & AFT & GIT
+    M --> QA
+    QA --> AWBOX
+    %% VP -- updates frame --> AW
+    %% AW -- ROI changed / contrast / view state --> VP
+    %% AWBOX -- subimageMouseClickEvent --> ACT
+    M -. uses .-> CC["ConfigurationClient<br>(external: epoc-utils)"]
+    AWBOX -. uses .-> CC
+    VP -. uses .-> CC & RD["Reader (reader.py)"]
+    TC -. uses .-> CC
+    FO -. uses .-> CC
+    RT -. uses .-> CC
+    CT -. uses .-> CC
+    GIT -. uses .-> CC
+    CC -. talks to .-> R
+    RD -. uses .-> ZR["ZmqReceiver (zmq_receiver.py)"]
+    ZR -. ZMQ SUB/PUB .-> Z
+    JFW["JungfraujochWrapper<br>(external: epoc-utils)"] -. talks to .-> Z
+    FO -- snapshot: collect/cancel --> VP
+    VP -- live/collect/collect_pedestal/cancel --> JFW
+    RT --> TEMC["TEMClient<br>(external: simple_tem)"] & MN["MetadataNotifier<br>(metadata_update_client.py)"]
+    CT --> TEMC
+    AFT --> TEMC
+    TEMC --> TSR
+    TSR --> T
+    FO -- MetadataSignalHandler<br>(Qt Signals: success/error)<br>reports result of MetadataNotifier call --> MN
+    MN -. ZMQ REQ/REP .-> H5MU
+    H5MU -- appends metadata --> D
+    FO -- read/write datasets --> D
+
+    T@{ shape: diam}
+    style AW fill:#FFD600,stroke:#333,stroke-width:2px
+    style CC fill:#FFCDD2,stroke:#333
+    style JFW fill:#FFCDD2,stroke:#333
+    style TEMC fill:#FFCDD2,stroke:#333
+    style MN fill:transparent,stroke:#333
+    style AWBOX fill:#FFF3B0,stroke:#333,stroke-width:1px
+    style NOE fill:transparent,stroke:#777,stroke-width:1px
