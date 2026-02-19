@@ -57,15 +57,6 @@ TOC
    TEMClient
    JungfraujochWrapper
 
-.. .. toctree::
-..    :maxdepth: 1
-..    :caption: API Reference (GUI):
-
-..    ApplicationWindow
-..    VisualizationPanel
-..    TemControls
-..    FileOperations
-
 .. toctree::
    :maxdepth: 1
    :caption: Meta:
