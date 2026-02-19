@@ -1,4 +1,4 @@
-:hide-toc:
+.. _api-jungfraujochwrapper:
 
 JungfraujochWrapper
 ----------------------

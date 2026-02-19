@@ -1,5 +1,4 @@
-:hide-toc:
-
+.. _api-configurationclient:
 
 ConfigurationClient
 ----------------------
